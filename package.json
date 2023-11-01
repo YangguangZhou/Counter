@@ -5,6 +5,9 @@
   "repository": "https://github.com/YangguangZhou/Counter.git",
   "author": "Jerry Zhou <61733195+YangguangZhou@users.noreply.github.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "node api.js"
+  },
   "dependencies": {
     "anafanafo": "^1.0.0",
     "axios": "^0.21.1",
