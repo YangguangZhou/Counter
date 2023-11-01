@@ -10,10 +10,12 @@ app.get('/api', async (req, res) => {
 
     const param = new URLSearchParams(req.url.split("?")[1]);
     const name = param.get("name");
+    var font = param.get("font");
+    if(!font) font = 16;
 
     const { default: fetch } = await import('node-fetch');
 
-    const result = await(await fetch(apiUrl, {
+    const result = await (await fetch(apiUrl, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -26,8 +28,20 @@ app.get('/api', async (req, res) => {
     res.setHeader("Content-Type", "image/svg+xml");
     res.send(`
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 180">
-    <g id="detail">
-        <div id="app">这是第 <strong>${counterView}</strong> 次访问</div>
-    </g>
-    </svg>`);
+        <style>
+            .text {
+                font-family: Microsoft YaHei;
+                font-size: ${font}px;
+            }
+        </style>
+        <g id="detail">
+            <text class="text">${counterView}</text>
+        </g>
+    </svg>
+    `);
+});
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
