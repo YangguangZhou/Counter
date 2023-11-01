@@ -1,6 +1,8 @@
 {
     "routes": [
-        {"handle": "filesystem"},
-        { "src": "/api", "dest": "/api.js" }
+        {
+            "src": "/api",
+            "dest": "/api.js"
+        }
     ]
 }
