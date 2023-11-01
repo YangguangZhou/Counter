@@ -1,5 +1,4 @@
 const moment = require('moment');
-
 const apiUrl = 'https://g3rvbpemgm.us.aircode.run/counter';
 
 module.exports = async (req, res) => {
