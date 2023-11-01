@@ -1,6 +1,6 @@
 {
     "routes": [
         {"handle": "filesystem"},
-        { "src": "/practice", "dest": "/api.js" }
+        { "src": "/api", "dest": "/api.js" }
     ]
 }
