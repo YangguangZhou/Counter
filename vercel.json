@@ -1,8 +1,13 @@
 {
+    "version": 2,
     "routes": [
         {
             "src": "/api",
-            "dest": "/api.js"
+            "dest": "api/api.js"
         }
-    ]
+    ],
+    "builds": {
+        "src": "api",
+        "use": "@now/node"
+    }
 }
