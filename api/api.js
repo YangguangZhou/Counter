@@ -7,10 +7,8 @@ module.exports = async (req, res) => {
     var name = param.get("name");
     var dark = param.get("dark");
     var font = param.get("font");
-    var color;
     if (!name) name = "counter";
     if (!dark) color = "#000";
-    else color = "#fff"; 
     if (!font) font = 16;
     const { default: fetch } = await import('node-fetch');
     const result = await (await fetch(apiUrl, {
@@ -21,6 +19,7 @@ module.exports = async (req, res) => {
         body: JSON.stringify({ name }),
     })).json();
     const counterView = result.times;
+    var color = (dark == 1) ? "#fff" : "#000";
     res.setHeader("Content-Type", "image/svg+xml");
     res.send(`
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="slice">
