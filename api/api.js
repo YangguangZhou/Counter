@@ -19,7 +19,7 @@ module.exports = async (req, res) => {
         body: JSON.stringify({ name }),
     })).json();
     const counterView = result.times;
-    const color = dark? "#fff" : "#000";
+    const color = dark==1 ? "#fff" : "#000";
     res.setHeader("Content-Type", "image/svg+xml");
     res.send(`
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="slice">
