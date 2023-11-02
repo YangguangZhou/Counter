@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style>
+        .text {
+            font-family: Microsoft YaHei;
+            font-size: ${font}px;
+        }
+    </style>
+    <g>
+        <text class="text" x="0" y="${font}">${counterView}</text>
+    </g>
+</svg>
