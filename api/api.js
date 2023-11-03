@@ -1,14 +1,17 @@
 const moment = require('moment');
 const apiUrl = 'https://g3rvbpemgm.us.aircode.run/counter';
 
+const { createCanvas } = require('canvas');
+
 function getTextDimensions(text, font) {
-    var canvas = document.createElement("canvas");
-    var context = canvas.getContext("2d");
+    const canvas = createCanvas(200, 200);
+    const context = canvas.getContext('2d');
     context.font = font;
-    var metrics = context.measureText(text);
+    const metrics = context.measureText(text);
     return {
         width: metrics.width,
-        height: metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent
+        // The height calculation is a workaround because the height is not directly given by the measureText method
+        height: Math.ceil(parseFloat(getComputedStyle(context.canvas).getPropertyValue('font-size')))
     };
 }
 
