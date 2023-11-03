@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/YangguangZhou/Counter.git",
-  "author": "Jerry Zhou <61733195+YangguangZhou@users.noreply.github.com>",
+  "author": "Jerry Zhou <i@jerryz.com.cn>",
   "license": "MIT",
   "dependencies": {
     "anafanafo": "^1.0.0",
     "axios": "^0.21.1",
     "express": "^4.18.2",
     "moment": "^2.29.4",
-    "node-fetch": "^3.3.2"
+    "node-fetch": "^3.3.2",
+    "canvas": "^2.11.2"
   }
 }
