@@ -20,9 +20,14 @@ module.exports = async (req, res) => {
     })).json();
     const counterView = result.times;
     var color = (dark == 1) ? "#fff" : "#000";
+
+    // 计算文本的宽度和高度
+    const textWidth = counterView.length * font; // 根据字数和字体大小计算宽度
+    const textHeight = font; // 字体大小即为文本的高度
+
     res.setHeader("Content-Type", "image/svg+xml");
     res.send(`
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="slice">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${textWidth}" height="${textHeight}">
             <style>
                 .text {
                     font-family: Microsoft YaHei;
