@@ -1,6 +1,17 @@
 const moment = require('moment');
 const apiUrl = 'https://g3rvbpemgm.us.aircode.run/counter';
 
+function getTextDimensions(text, font) {
+    var canvas = document.createElement("canvas");
+    var context = canvas.getContext("2d");
+    context.font = font;
+    var metrics = context.measureText(text);
+    return {
+        width: metrics.width,
+        height: metrics.actualBoundingBoxAscent + metrics.actualBoundingBoxDescent
+    };
+}
+
 module.exports = async (req, res) => {
     moment.locale("zh-cn");
     const param = new URLSearchParams(req.url.split("?")[1]);
@@ -22,9 +33,10 @@ module.exports = async (req, res) => {
     var color = (dark == 1) ? "#fff" : "#000";
 
     // 计算文本的宽度和高度
-    const textWidth = counterView.length * font; // 根据字数和字体大小计算宽度
+    const textWidth = counterView.toString().length * font; // 根据字数和字体大小计算宽度
     const textHeight = font; // 字体大小即为文本的高度
-
+    // const fonts = 'regular ' + font + 'px Microsoft YaHei';
+    // const text = getTextDimensions(counterView.toString(), fonts);
     res.setHeader("Content-Type", "image/svg+xml");
     res.send(`
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${textWidth}" height="${textHeight}">
