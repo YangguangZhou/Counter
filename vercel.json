@@ -1,7 +1,9 @@
 {
     "routes": [
         {"handle": "filesystem"},
-        { "src": "/api", "dest": "/api/api.js" },
-        { "src": "/view", "dest": "/api/view.js" }
+        { "src": "/counter", "dest": "/api/counter.js" },
+        { "src": "/view", "dest": "/api/view.js" },
+        { "src": "/api/counter", "dest": "https://g3rvbpemgm.us.aircode.run/counter" },
+        { "src": "/api/view", "dest": "https://g3rvbpemgm.us.aircode.run/view" }
     ]
 }
