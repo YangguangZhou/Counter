@@ -8,7 +8,7 @@ Powered by [Vercel](https://vercel.com/) and [Aircode](https://aircode.io/)
 
 将下方代码插入到网页中即可。
 
-1. Markdown
+1. **Markdown** （推荐）
    
    ```markdown
    ![Counter](https://counter.jerryz.com.cn/api?name=counter)
@@ -28,14 +28,28 @@ Powered by [Vercel](https://vercel.com/) and [Aircode](https://aircode.io/)
 
 ## 参数说明
 
-1. 字体大小
+1. 是否将当前显示计入计数器
+   
+   - 计入：`/api`
+      ```markdown
+      ![Counter](https://counter.jerryz.com.cn/api?name=counter)
+      ```
+      ![Counter](https://counter.jerryz.com.cn/api?name=counter)
+
+   - 不计入：`/view`
+      ```markdown
+      ![Counter](https://counter.jerryz.com.cn/view?name=counter)
+      ```
+      ![Counter](https://counter.jerryz.com.cn/view?name=counter)
+
+2. 字体大小
 
    ```markdown
    ![Counter](https://counter.jerryz.com.cn/api?name=counter&font=20)
    ```
    ![Counter](https://counter.jerryz.com.cn/api?name=counter&font=20)
 
-2. 深色模式（显示白色字体）
+3. 深色模式（显示白色字体）
 
    ```markdown
    ![Counter](https://counter.jerryz.com.cn/api?name=counter&dark=1)
