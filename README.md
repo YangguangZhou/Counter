@@ -2,6 +2,8 @@
 
 可以插入Markdown文件或HTML网页的计数器
 
+Powered by [Vercel](https://vercel.com/) and [Aircode](https://aircode.io/)
+
 ## 使用方法
 
 将下方代码插入到网页中即可。
