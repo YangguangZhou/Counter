@@ -1,0 +1,7 @@
+{
+  "name": "counter",
+  "runtime": "node/v18",
+  "region": "US",
+  "envs": [],
+  "typescript": false
+}
