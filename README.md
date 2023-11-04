@@ -56,4 +56,83 @@ Powered by [Vercel](https://vercel.com/) and [Aircode](https://aircode.io/)
    ```
    ![Counter](https://counter.jerryz.com.cn/api?name=counter&dark=1)
 
+## 发送请求
+
+1. Python：
+
+```python
+import requests
+
+url = "https://g3rvbpemgm.us.aircode.run/counter"
+name = "your_variable_here"
+data = {"name": name}
+
+response = requests.post(url, json=data)
+
+print(response.text)
+```
+
+2. JavaScript（使用Node.js）：
+
+```javascript
+const axios = require('axios');
+
+const url = "https://g3rvbpemgm.us.aircode.run/counter";
+const name = "your_variable_here";
+const data = { name };
+
+axios.post(url, data)
+  .then(response => {
+    console.log(response.data);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+```
+
+3. Java（使用HttpClient）：
+
+```java
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
+
+public class Main {
+    public static void main(String[] args) {
+        try {
+            String url = "https://g3rvbpemgm.us.aircode.run/counter";
+            String name = "your_variable_here";
+            HttpClient client = HttpClientBuilder.create().build();
+            HttpPost post = new HttpPost(url);
+
+            StringEntity input = new StringEntity("{\"name\": \"" + name + "\"}");
+            input.setContentType("application/json");
+            post.setEntity(input);
+
+            HttpResponse response = client.execute(post);
+
+            // 处理响应
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+4. Shell脚本：
+
+```bash
+#!/bin/bash
+
+URL="https://g3rvbpemgm.us.aircode.run/counter"
+NAME="your_variable_here"
+DATA="{\"name\": \"$NAME\"}"
+
+curl -X POST -H "Content-Type: application/json" -d "$DATA" "$URL"
+```
+
+在这些示例中，将 `your_variable_here` 替换为你实际想要发送的变量值。然后运行相应的程序以发送POST请求。
    
