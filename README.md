@@ -56,14 +56,14 @@ Powered by [Vercel](https://vercel.com/) and [Aircode](https://aircode.io/)
    ```
    ![Counter](https://counter.jerryz.com.cn/api?name=counter&dark=1)
 
-## 发送请求
+## API
 
 1. Python：
 
 ```python
 import requests
 
-url = "https://g3rvbpemgm.us.aircode.run/counter"
+url = "https://counter.jerryz.com.cn/api/counter"
 name = "your_variable_here"
 data = {"name": name}
 
@@ -77,7 +77,7 @@ print(response.text)
 ```javascript
 const axios = require('axios');
 
-const url = "https://g3rvbpemgm.us.aircode.run/counter";
+const url = "https://counter.jerryz.com.cn/api/counter";
 const name = "your_variable_here";
 const data = { name };
 
@@ -103,7 +103,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 public class Main {
     public static void main(String[] args) {
         try {
-            String url = "https://g3rvbpemgm.us.aircode.run/counter";
+            String url = "https://counter.jerryz.com.cn/api/counter";
             String name = "your_variable_here";
             HttpClient client = HttpClientBuilder.create().build();
             HttpPost post = new HttpPost(url);
@@ -127,7 +127,7 @@ public class Main {
 ```bash
 #!/bin/bash
 
-URL="https://g3rvbpemgm.us.aircode.run/counter"
+URL="https://counter.jerryz.com.cn/api/counter"
 NAME="your_variable_here"
 DATA="{\"name\": \"$NAME\"}"
 
