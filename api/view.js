@@ -9,8 +9,8 @@ module.exports = async (req, res) => {
     var font = param.get("font");
     var color = param.get("color");
     if (!name) name = "counter";
-    if (!dark&&!color) color = "#000";
-    else if(!color&&dark) color = "#fff";
+    if ((!dark)&&(!color)) color = "#000";
+    else if((!color)&&dark) color = "#fff";
     if (!font) font = 16;
     const { default: fetch } = await import('node-fetch');
     const result = await (await fetch(apiUrl, {
