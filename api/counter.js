@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
     const counterView = result.times;
     var color = (dark == 1) ? "#fff" : "#000";
     // 计算文本的宽度和高度
-    const textWidth = counterView.toString().length * font / 2.0 + counterView.toString().length; // 根据字数和字体大小计算宽度
+    const textWidth = Math.ceil(counterView.toString().length * font / 2.0 + counterView.toString().length*1.5); // 根据字数和字体大小计算宽度
     const textHeight = font + 1; // 字体大小即为文本的高度
     res.setHeader("Content-Type", "image/svg+xml");
     res.send(`
