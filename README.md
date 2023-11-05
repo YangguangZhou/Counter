@@ -58,6 +58,15 @@ Powered by [Vercel](https://vercel.com/) and [Aircode](https://aircode.io/)
    ```
    ![Counter](https://counter.jerryz.com.cn/counter?name=counter&dark=1)
 
+4. 自定义颜色
+
+   ```markdown
+   ![Counter](https://counter.jerryz.com.cn/counter?name=counter&color=#279cff)
+   ![Counter](https://counter.jerryz.com.cn/counter?name=counter&color=rgb(136, 136, 255))
+   ```
+   ![Counter](https://counter.jerryz.com.cn/counter?name=counter&color=#279cff)
+   ![Counter](https://counter.jerryz.com.cn/counter?name=counter&color=rgb(136, 136, 255))
+
 ## API
 
 以下是使用不同编程语言发送 API 请求的示例代码：

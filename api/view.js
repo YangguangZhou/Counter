@@ -7,8 +7,10 @@ module.exports = async (req, res) => {
     var name = param.get("name");
     var dark = param.get("dark");
     var font = param.get("font");
+    var color = param.get("color");
     if (!name) name = "counter";
-    if (!dark) color = "#000";
+    if (!dark&&!color) color = "#000";
+    else if(!color&&dark) color = "#fff";
     if (!font) font = 16;
     const { default: fetch } = await import('node-fetch');
     const result = await (await fetch(apiUrl, {
@@ -19,7 +21,6 @@ module.exports = async (req, res) => {
         body: JSON.stringify({ name }),
     })).json();
     const counterView = result.times;
-    var color = (dark == 1) ? "#fff" : "#000";
     // 计算文本的宽度和高度
     const textWidth = Math.ceil(counterView.toString().length * font / 2.0 + counterView.toString().length*1.5); // 根据字数和字体大小计算宽度
     const textHeight = font; // 字体大小即为文本的高度
