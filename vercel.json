@@ -3,7 +3,6 @@
         {"handle": "filesystem"},
         { "src": "/counter", "dest": "/api/counter.js" },
         { "src": "/view", "dest": "/api/view.js" },
-        { "src": "/api/counter", "dest": "https://g3rvbpemgm.us.aircode.run/counter" },
-        { "src": "/api/view", "dest": "https://g3rvbpemgm.us.aircode.run/view" }
+        { "src": "/api", "dest": "process.env.AIRCODE_DOMAIN" }
     ]
 }

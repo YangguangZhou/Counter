@@ -58,8 +58,9 @@ Powered by [Vercel](https://vercel.com/) and [Aircode](https://aircode.io/)
 
 ## API
 
-1. Python：
+以下是使用不同编程语言发送 API 请求的示例代码：
 
+1. Python:
 ```python
 import requests
 
@@ -68,53 +69,65 @@ name = "your_variable_here"
 data = {"name": name}
 
 response = requests.post(url, json=data)
-
-print(response.text)
+times = response.json()["times"]
+print(times)
 ```
 
-2. JavaScript（使用Node.js）：
-
+2. JavaScript:
 ```javascript
-const axios = require('axios');
+const fetch = require('node-fetch');
 
 const url = "https://counter.jerryz.com.cn/api/counter";
 const name = "your_variable_here";
 const data = { name };
 
-axios.post(url, data)
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error(error);
+fetch(url, {
+  method: 'POST',
+  body: JSON.stringify(data),
+  headers: { 'Content-Type': 'application/json' },
+})
+  .then(response => response.json())
+  .then(data => {
+    const times = data.times;
+    console.log(times);
   });
 ```
 
-3. Java（使用HttpClient）：
-
+3. Java:
 ```java
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
-public class Main {
+public class APIClient {
     public static void main(String[] args) {
+        String url = "https://counter.jerryz.com.cn/api/counter";
+        String name = "your_variable_here";
+        String data = "{\"name\": \"" + name + "\"}";
+
         try {
-            String url = "https://counter.jerryz.com.cn/api/counter";
-            String name = "your_variable_here";
-            HttpClient client = HttpClientBuilder.create().build();
-            HttpPost post = new HttpPost(url);
+            URL apiUrl = new URL(url);
+            HttpURLConnection connection = (HttpURLConnection) apiUrl.openConnection();
+            connection.setRequestMethod("POST");
+            connection.setRequestProperty("Content-Type", "application/json");
+            connection.setDoOutput(true);
 
-            StringEntity input = new StringEntity("{\"name\": \"" + name + "\"}");
-            input.setContentType("application/json");
-            post.setEntity(input);
+            connection.getOutputStream().write(data.getBytes());
 
-            HttpResponse response = client.execute(post);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            StringBuilder response = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                response.append(line);
+            }
+            reader.close();
 
-            // 处理响应
+            String jsonResponse = response.toString();
+            // Parse the JSON response and extract the "times" value
+            // ...
+
+            System.out.println(times);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -122,17 +135,63 @@ public class Main {
 }
 ```
 
-4. Shell脚本：
+4. PHP:
+```php
+<?php
+$url = "https://counter.jerryz.com.cn/api/counter";
+$name = "your_variable_here";
+$data = array("name" => $name);
 
-```bash
-#!/bin/bash
+$options = array(
+    'http' => array(
+        'header'  => "Content-type: application/json",
+        'method'  => 'POST',
+        'content' => json_encode($data),
+    ),
+);
 
-URL="https://counter.jerryz.com.cn/api/counter"
-NAME="your_variable_here"
-DATA="{\"name\": \"$NAME\"}"
+$context  = stream_context_create($options);
+$response = file_get_contents($url, false, $context);
+$responseData = json_decode($response, true);
+$times = $responseData["times"];
 
-curl -X POST -H "Content-Type: application/json" -d "$DATA" "$URL"
+echo $times;
+?>
+```
+
+5. 微信小程序:
+```javascript
+wx.request({
+  url: 'https://counter.jerryz.com.cn/api/counter',
+  method: 'POST',
+  data: {
+    name: 'your_variable_here'
+  },
+  header: {
+    'Content-Type': 'application/json'
+  },
+  success: function (res) {
+    const times = res.data.times;
+    console.log(times);
+  },
+  fail: function (error) {
+    console.log(error);
+  }
+});
 ```
 
 在这些示例中，将 `your_variable_here` 替换为你实际想要发送的变量值。然后运行相应的程序以发送POST请求。
    
+## 部署
+
+1. 部署到AirCode
+   
+   [![Deploy with AirCode](https://aircode.io/aircode-deploy-button.svg)](https://aircode.io/dashboard?owner=YangguangZhou&repo=Counter&branch=main&path=Aircode&appname=counter)
+
+   成功创建项目后，点击Deploy，得到Aircode分配的域名（形如 `https://xxxx.us.aircode.run` ）。
+
+2. 部署到Vercel
+   
+   [![Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https://github.com/YangguangZhou/Counter)
+
+   创建项目时，请将环境变量 `AIRCODE_DOMAIN` 填写为Aircode分配的域名。
