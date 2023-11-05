@@ -2,11 +2,13 @@
 
 可以插入Markdown文件或HTML网页的计数器
 
+![Vercel](https://vercel.jerryz.com.cn/api/YangguangZhou/Counter)
+
 Powered by [Vercel](https://vercel.com/) and [Aircode](https://aircode.io/)
 
 ## 使用方法
 
-将下方代码插入到网页中即可。
+将下方代码的 `name=` 后替换为自己的标识符，再插入到网页中即可。
 
 1. **Markdown** （推荐）
    
@@ -180,7 +182,7 @@ wx.request({
 });
 ```
 
-在这些示例中，将 `your_variable_here` 替换为你实际想要发送的变量值。然后运行相应的程序以发送POST请求。
+在这些示例中，将 `your_variable_here` 替换为你实际想要发送的变量值。然后运行相应的程序以发送POST请求。如果要将当前请求计入计数器，`url` 使用 `https://counter.jerryz.com.cn/api/counter`。如果不将当前请求计入计数器，`url` 使用 `https://counter.jerryz.com.cn/api/view`
    
 ## 部署
 
@@ -188,10 +190,10 @@ wx.request({
    
    [![Deploy with AirCode](https://aircode.io/aircode-deploy-button.svg)](https://aircode.io/dashboard?owner=YangguangZhou&repo=Counter&branch=main&path=Aircode&appname=counter)
 
-   成功创建项目后，点击Deploy，得到Aircode分配的域名（形如 `https://xxxx.us.aircode.run` ）。
+   成功创建项目后，点击 `Deploy`，得到Aircode分配的域名（形如 `https://xxxx.us.aircode.run` ）。
 
 2. 部署到Vercel
    
    [![Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https://github.com/YangguangZhou/Counter)
-
-   创建项目时，请将环境变量 `AIRCODE_DOMAIN` 填写为Aircode分配的域名。
+   
+   项目创建完成后，请点击 `Settings - Environment Variables` 进入环境变量配置页创建环境变量 `AIRCODE_DOMAIN`，填写为Aircode分配的域名。
