@@ -1,9 +1,11 @@
 {
     "routes": [
         {"handle": "filesystem"},
-        { "src": "/", "dest": "https://blog.jerryz.com.cn/article/counter" },
         { "src": "/counter", "dest": "/api/counter.js" },
         { "src": "/view", "dest": "/api/view.js" },
         { "src": "/api", "dest": "process.env.AIRCODE_DOMAIN" }
+    ],
+    "redirects": [
+        { "source": "/", "destination": "https://blog.jerryz.com.cn/article/counter" }
     ]
 }
