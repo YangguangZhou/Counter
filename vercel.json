@@ -1,11 +1,9 @@
 {
-    "redirects": [
-        { "source": "/", "destination": "https://blog.jerryz.com.cn/article/counter" }
-    ],
     "routes": [
         {"handle": "filesystem"},
         { "src": "/counter", "dest": "/api/counter.js" },
         { "src": "/view", "dest": "/api/view.js" },
-        { "src": "/api", "dest": "process.env.AIRCODE_DOMAIN" }
+        { "src": "/api", "dest": "process.env.AIRCODE_DOMAIN" },
+        { "src": "^/$", "status": 307, "headers": { "Location": "https://blog.jerryz.com.cn/article/counter" } }
     ]
 }
