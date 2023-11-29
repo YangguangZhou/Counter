@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "aircode": "0.7.0"
+    "aircode": "0.7.0",
+    "moment": "2.29.4"
   }
 }
