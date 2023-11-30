@@ -2,7 +2,6 @@
     "routes": [
         {"handle": "filesystem"},
         { "src": "/counter", "dest": "/api/counter.js" },
-        { "src": "/view", "dest": "/api/view.js" },
         { "src": "^/$", "status": 307, "headers": { "Location": "https://blog.jerryz.com.cn/article/counter" } }
     ]
 }
