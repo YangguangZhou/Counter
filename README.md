@@ -211,4 +211,4 @@ wx.request({
    
    [![Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https://github.com/YangguangZhou/Counter)
    
-   项目创建完成后，请点击 `Settings - Environment Variables` 进入环境变量配置页创建环境变量 `AIRCODE_DOMAIN`，填写为Aircode分配的域名。
+   项目创建完成后，请将代码中所有的 `https://g3rvbpemgm.us.aircode.run/` 更改为Aircode分配的域名。
