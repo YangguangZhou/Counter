@@ -3,9 +3,6 @@
         {"handle": "filesystem"},
         { "src": "/counter", "dest": "/api/counter.js" },
         { "src": "/view", "dest": "/api/view.js" },
-        { "src": "/api/counter", "dest": "https://g3rvbpemgm.us.aircode.run/counter.js" },
-        { "src": "/api/view", "dest": "https://g3rvbpemgm.us.aircode.run/view.js" },
-        { "src": "/api/delete", "dest": "https://g3rvbpemgm.us.aircode.run/delete.js" },
         { "src": "^/$", "status": 307, "headers": { "Location": "https://blog.jerryz.com.cn/article/counter" } }
     ]
 }
