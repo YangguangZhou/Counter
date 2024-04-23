@@ -1,9 +1,8 @@
 const http = require('http');
-const url = require('url');
 
 module.exports = async function(context, req) {
-    const queryObject = url.parse(req.url,true).query;
-    const name = queryObject.name;
+    const param = new URLSearchParams(req.url.split("?")[1]);
+    var name = param.get("name");
 
     const options = {
         hostname: 'visitor-badge.laobi.icu',
