@@ -1,6 +1,6 @@
 const http = require('http');
 
-module.exports = async (req) => {
+module.exports = async (context, req) => {
     const param = new URLSearchParams(req.url.split("?")[1]);
     var name = param.get("name");
     const options = {
