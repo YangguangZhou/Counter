@@ -4,12 +4,10 @@ const http = require('http');
 module.exports = async (context, req) => {
     moment.locale("zh-cn");
     if (!req || !req.url) {
-        context.res = {
+        return {
             status: 400,
             body: 'Bad Request: req or req.url is missing'
         };
-        context.done();
-        return;
     }
     const param = new URLSearchParams(req.url.split("?")[1]);
     var name = param.get("name");
@@ -31,19 +29,17 @@ module.exports = async (context, req) => {
             const visitorCountMatch = data.match(/<text[^>]*>(\d+)<\/text>/g);
             const visitorCount = visitorCountMatch ? visitorCountMatch[visitorCountMatch.length - 1].match(/(\d+)/)[0] : 'unknown';
 
-            context.res = {
+            return {
                 body: visitorCount
             };
-            context.done();
         });
     });
 
     request.on('error', (error) => {
-        context.res = {
+        return {
             status: 500,
             body: `Error: ${error.message}`
         };
-        context.done();
     });
 
     request.end();
