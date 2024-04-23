@@ -1,8 +1,7 @@
 const http = require('http');
 
-module.exports = async function(context, req) {
-    const param = new URLSearchParams(req.url.split("?")[1]);
-    var name = param.get("name");
+module.exports = async function(event, context) {
+    const name = event.queryStringParameters.name;
 
     const options = {
         hostname: 'visitor-badge.laobi.icu',
