@@ -3,6 +3,14 @@ const http = require('http');
 
 module.exports = async (context, req) => {
     moment.locale("zh-cn");
+    if (!req || !req.url) {
+        context.res = {
+            status: 400,
+            body: 'Bad Request: req or req.url is missing'
+        };
+        context.done();
+        return;
+    }
     const param = new URLSearchParams(req.url.split("?")[1]);
     var name = param.get("name");
     const options = {
