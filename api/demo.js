@@ -1,6 +1,8 @@
+const moment = require('moment');
 const http = require('http');
 
 module.exports = async (context, req) => {
+    moment.locale("zh-cn");
     const param = new URLSearchParams(req.url.split("?")[1]);
     var name = param.get("name");
     const options = {
