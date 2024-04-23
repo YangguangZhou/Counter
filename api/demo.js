@@ -26,11 +26,11 @@ module.exports = async (req) => {
         });
 
         res.on('end', () => {
-            const visitorCountMatch = data.match(/<text[^>]*>(\d+)<\/text>/g);
-            const visitorCount = visitorCountMatch ? visitorCountMatch[visitorCountMatch.length - 1].match(/(\d+)/)[0] : 'unknown';
+            // const visitorCountMatch = data.match(/<text[^>]*>(\d+)<\/text>/g);
+            // const visitorCount = visitorCountMatch ? visitorCountMatch[visitorCountMatch.length - 1].match(/(\d+)/)[0] : 'unknown';
 
             return {
-                body: visitorCount
+                body: data
             };
         });
     });
