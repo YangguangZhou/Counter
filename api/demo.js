@@ -1,7 +1,7 @@
 const moment = require('moment');
 const http = require('http');
 
-module.exports = async (context, req) => {
+module.exports = async (req) => {
     moment.locale("zh-cn");
     if (!req || !req.url) {
         return {
