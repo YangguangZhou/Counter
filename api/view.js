@@ -1,5 +1,5 @@
 const moment = require('moment');
-const apiUrl = 'http://counter-sever.jerryz.com.cn/view';
+const apiUrl = 'https://counter-sever.jerryz.com.cn/view';
 
 module.exports = async (req, res) => {
     moment.locale("zh-cn");
