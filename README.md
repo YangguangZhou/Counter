@@ -2,6 +2,8 @@
 
 可以插入Markdown文件或HTML网页的计数器
 
+更好的阅读体验请见[博客](https://blog.jerryz.com.cn/article/counter)
+
 ![Vercel](https://vercel.jerryz.com.cn/api/YangguangZhou/Counter)
 
 Powered by [Vercel](https://vercel.com/) and [Aircode](https://aircode.io/)
@@ -199,7 +201,7 @@ wx.request({
 
 在这些示例中，将 `your_variable_here` 替换为你实际想要发送的变量值。然后运行相应的程序以发送POST请求。如果要将当前请求计入计数器，`url` 使用 `https://counter.jerryz.com.cn/api/counter`。如果不将当前请求计入计数器，`url` 使用 `https://counter.jerryz.com.cn/api/view`
    
-## 部署
+<!-- ## 部署
 
 1. 部署到AirCode
    
@@ -211,4 +213,4 @@ wx.request({
    
    [![Vercel](https://vercel.com/button)](https://vercel.com/import/git?s=https://github.com/YangguangZhou/Counter)
    
-   项目创建完成后，请将代码中所有的 `https://g3rvbpemgm.us.aircode.run/` 更改为Aircode分配的域名。
+   项目创建完成后，请将代码中所有的 `https://g3rvbpemgm.us.aircode.run/` 更改为Aircode分配的域名。 -->
